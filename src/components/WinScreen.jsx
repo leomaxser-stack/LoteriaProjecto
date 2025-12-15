@@ -24,7 +24,7 @@ const WinScreen = ({ winner, onRestart }) => {
                         <img
                             src="https://i.ibb.co/VWsgSDQ8/frijolito-Ganador-fondo.png"
                             alt="Ganador"
-                            style={{ maxWidth: '540px', width: '100%', height: 'auto', borderRadius: '15px', margin: '1 px auto', display: 'block', boxShadow: '0 8px 16px rgba(0,0,0,0)' }}
+                            style={{ maxWidth: '540px', width: '100%', height: 'auto', borderRadius: '15px', margin: '20px auto', display: 'block', boxShadow: '0 8px 16px rgba(0,0,0,0)' }}
                         />
                         {/* ============================================= */}
                     </>
