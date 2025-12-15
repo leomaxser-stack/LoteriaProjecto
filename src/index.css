@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Modern Color Palette */
+  --color-bg: #fdfbf7;
+  --color-text: #2c3e50;
+  --color-primary: #f53d96;
+  /* Vibrant Hot Pink */
+  --color-secondary: #FF6B35;
+  /* Coral Orange */
+  --color-tertiary: #00D4AA;
+  /* Teal */
+  --color-success: #4CAF50;
+  /* Modern Green */
+  --color-accent: #FFD700;
+  /* Gold */
+  --color-dark: #1a1a1a;
+  --color-purple: #9C27B0;
+  /* Vibrant Purple */
+
+  /* Modern Fonts */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  /* Background Image with Dark Gradient Overlay */
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%),
+    url('https://escapadas.mexicodesconocido.com.mx/wp-content/uploads/2025/01/RealdeCatorce-RicardoIrak-web.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 1400px;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 4rem;
+  color: var(--color-primary);
+  text-shadow:
+    0 2px 10px rgba(255, 20, 147, 0.3),
+    0 0 30px rgba(255, 20, 147, 0.2);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #FF8C60 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 15px rgba(255, 107, 53, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(255, 107, 53, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 2px 10px rgba(255, 107, 53, 0.4);
+}
+
+input {
+  padding: 16px 20px;
+  font-size: 1.2rem;
+  border: 3px solid #0091EA;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 4px rgba(255, 20, 147, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 750px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Individual Card */
+.card {
+  aspect-ratio: 2/3;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border: 3px solid #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 12px rgba(82, 29, 29, 0.15),
+    0 1px 3px rgba(82, 29, 29, 0.1);
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 2px solid #0091EA;
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.25),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  border-color: var(--color-primary);
+}
+
+.card-image {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+.card-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 8px;
+  color: #0091EA;
+  line-height: 1.1;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.card-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  z-index: 2;
+  background: white;
+  padding: 2px 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Frijolito */
+.frijolito {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(15deg);
+  width: 115px;
+  height: 115px;
+  z-index: 10;
+  pointer-events: none;
+
+  /* === IMAGEN DEL FRIJOLITO === */
+  background-image: url('https://i.ibb.co/kgBX6fWj/frijolito-LOTERIA-fondo.png');
+
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* Sombra realista para la imagen */
+  filter: drop-shadow(4px 8px 10px rgb(0, 0, 0));
+}
+
+/* Oscurecer la carta marcada */
+.card.marked::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.237);
+  /* Capa oscura semitransparente */
+  border-radius: 12px;
+  z-index: 5;
+  /* Debajo del frijolito (z-index 10) pero encima del contenido */
+  pointer-events: none;
+}
+
+/* Efecto de brillo eliminado para usar imagen real */
+
+/* Current Card Display */
+.current-card-display {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    0 0 0 4px var(--color-primary);
+  position: relative;
+  max-width: 280px;
+  margin: 0 auto 20px;
+}
+
+.current-card-display img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 3px solid #0091EA;
+}
+
+.current-card-display h2 {
+  margin: 12px 0 0;
+  font-size: 1.9rem;
+  color: #0091EA;
+  font-weight: 800;
+}
+
+/* Start Screen */
+.start-screen {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  padding: 4rem;
+  border-radius: 28px;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.5);
+  max-width: 850px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 25%,
+      var(--color-tertiary) 50%,
+      var(--color-secondary) 75%,
+      var(--color-primary) 100%);
+}
+
+.start-screen h1 {
+  font-size: 4.5rem;
+  margin-bottom: 0.3rem;
+  line-height: 0.95;
+}
+
+.start-screen h2 {
+  color: var(--color-success);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.instructions {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  border: 3px solid #0091EA;
+  padding: 2.5rem;
+  margin: 2.5rem 0;
+  text-align: left;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 145, 234, 0.15);
+}
+
+.instructions h3 {
+  color: #0091EA;
+  margin-top: 0;
+  font-size: 1.4rem;
+  text-shadow: none;
+}
+
+.instructions li {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+/* Win Screen */
+.win-screen {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.95) 0%, rgba(156, 39, 176, 0.95) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.win-content {
+  background: white;
+  padding: 4.5rem;
+  border-radius: 32px;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 6px rgba(255, 215, 0, 0.8);
+  text-align: center;
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5) rotate(-5deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Info Button */
+.info-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: white;
+  color: #0091EA;
+  border: 2px solid #0091EA;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  z-index: 5;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .info-btn {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.info-btn:hover {
+  background: #0091EA;
+  color: white;
+  transform: scale(1.25) !important;
+  box-shadow: 0 4px 12px rgba(0, 145, 234, 0.4);
+}
+
+/* Modal Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 3rem;
+  border-radius: 24px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 101;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .game-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .current-card-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .start-screen {
+    padding: 2rem;
+  }
+
+  .start-screen h1 {
+    font-size: 3rem;
+  }
+}
